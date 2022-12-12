@@ -1,0 +1,2 @@
+Copyright (C) {copyright}
+Written by {author}.

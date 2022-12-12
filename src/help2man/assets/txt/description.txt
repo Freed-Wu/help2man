@@ -1,0 +1,1 @@
+Convert --help and --version to man page.

@@ -1,0 +1,32 @@
+
+positional arguments:
+  executable            executable program name
+  ...                   executable program arguments
+
+options:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+  --print-completion {bash,zsh,tcsh}
+                        print shell completion script
+  -n NAME, --name NAME  description for the first paragraph, default: Name
+  -s SECTION, --section SECTION
+                        section number for manual page, default: 1
+  -m MANUAL, --manual MANUAL
+                        name of manual. default: User Commands
+  -S SOURCE, --source SOURCE
+                        source of program (FSF, Debian, ...). default:
+  -p INFO_PAGE, --info-page INFO_PAGE
+                        name of Texinfo manual, default:
+  -i INCLUDE, --include INCLUDE
+                        include material from a file
+  -o OUTPUT, --output OUTPUT
+                        send output
+  --template {man,markdown}
+                        built-in template name. default: man
+  --template-file TEMPLATE_FILE
+                        template file.
+  --help-option HELP_OPTION
+                        help option string, default: --help
+  --version-option VERSION_OPTION
+                        version option string, default: --version
+  --no-discard-stderr   include stderr when parsing option output

@@ -1,0 +1,4 @@
+#!/usr/bin/env -S pip install -r
+# Need jinja2 to parse template.
+
+jinja2

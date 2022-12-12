@@ -1,0 +1,6 @@
+usage: help2man [-h] [-V] [--print-completion {bash,zsh,tcsh}] [-n NAME]
+                [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
+                [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
+                [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
+                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                executable ...
