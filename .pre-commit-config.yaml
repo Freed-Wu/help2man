@@ -68,7 +68,7 @@ repos:
           - mdformat-black
           - mdformat-config
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.5.1
+    rev: v0.6.0
     hooks:
       - id: markdownlint-cli2
         additional_dependencies:
@@ -78,17 +78,17 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/isort
-    rev: 5.11.0
+    rev: 5.11.4
     hooks:
       - id: isort
   - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.1.1
+    rev: 6.2.3
     hooks:
       - id: pydocstyle
         additional_dependencies:
           - toml
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.283
+    rev: v1.1.287
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
