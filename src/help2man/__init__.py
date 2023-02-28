@@ -15,14 +15,15 @@ from jinja2 import Template
 try:
     from ._version import __version__, __version_tuple__  # type: ignore
 except ImportError:
+    # for `python -m build` use help2man to generate man page of help2man
     __version__ = "rolling"
     __version_tuple__ = (0, 0, 0, __version__, "")
 
 logger = logging.getLogger(__name__)
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
 TEMPLATES = {
-    "man": (ASSETS_PATH / "man" / "template.man").read_text(),
-    "markdown": (ASSETS_PATH / "markdown" / "template.md").read_text(),
+    "man": (ASSETS_PATH / "jinja2" / "template.man.j2").read_text(),
+    "markdown": (ASSETS_PATH / "jinja2" / "template.md.j2").read_text(),
 }
 PAT_SECTION = re.compile(r"\n\n(?=\S)")
 PAT_SPACE = re.compile("  +")

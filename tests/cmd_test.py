@@ -16,20 +16,22 @@ HELP = "\n".join([USAGE, DESCRIPTION, OPTIONS, EPILOG])
 class Test:
     """Test."""
 
-    def test_help(self, capsys):
+    def test_help(self, capsys) -> None:
         """Test help.
 
         :param capsys:
+        :rtype: None
         """
         with suppress(SystemExit):
             parser.parse_args(["--help"])
         captured = capsys.readouterr()
         assert captured.out == HELP
 
-    def test_version(self, capsys):
+    def test_version(self, capsys) -> None:
         """Test version.
 
         :param capsys:
+        :rtype: None
         """
         with suppress(SystemExit):
             parser.parse_args(["--version"])

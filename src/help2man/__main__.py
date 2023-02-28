@@ -5,7 +5,7 @@
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from typing import NoReturn
 
-from . import ASSETS_PATH, DEFAULTS, __version__
+from . import ASSETS_PATH, DEFAULTS, __version__  # type: ignore
 from .external import shtab
 
 EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()

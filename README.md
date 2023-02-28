@@ -69,9 +69,7 @@ lines as description incorrectly.
 I provide `help2man --template XXX` and `help2man --template-file XXX` to do
 it. The template language is
 [jinja2](http://docs.jinkan.org/docs/jinja2/templates.html). See
-[template.man](https://github.com/Freed-Wu/help2man/tree/main/src/help2man/assets/man/template.man)
-and
-[template.md](https://github.com/Freed-Wu/help2man/tree/main/src/help2man/assets/markdown/template.md)
+[template](https://github.com/Freed-Wu/help2man/tree/main/src/help2man/assets/jinja2)
 as examples.
 
 ## GNU help2man don't provide any programming API
