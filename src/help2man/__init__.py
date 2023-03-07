@@ -19,6 +19,7 @@ except ImportError:
     __version__ = "rolling"
     __version_tuple__ = (0, 0, 0, __version__, "")
 
+PAT = re.compile(r"\x1b\[[0-9;]+?m")
 logger = logging.getLogger(__name__)
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
 TEMPLATES = {
@@ -156,20 +157,38 @@ def help2man(
     :type template: str
     :rtype: str
     """
+    helpstr = PAT.sub("", helpstr)
     paragraphs = PAT_SECTION.split(helpstr)
-    if paragraphs[0].startswith("usage: "):
-        synopsis = (
-            paragraphs[0]
-            .replace("usage: ", "")
-            .replace("\n" + " " * len("usage: "), "\n")
-        )
+    prog = ""
+    synopsis = ""
+    i = -1
+    for i, paragraph in enumerate(paragraphs):
+        if paragraph.startswith("usage: ") or paragraph.startswith("Usage: "):
+            synopsis = (
+                paragraph.replace("usage: ", "")
+                .replace("Usage: ", "")
+                .replace("\n" + " " * len("usage: "), "\n")
+            )
+            prog = synopsis.split(" ")[0]
+            break
+        elif paragraph.startswith("usage:\n") or paragraph.startswith(
+            "Usage:\n"
+        ):
+            synopsis = paragraph.replace("usage:\n", "").replace(
+                "Usage:\n", ""
+            )
+            prog = synopsis.strip().split(" ")[0]
+            break
+    if i == 0:
+        # argparse's description may be in 1-st paragraph
+        if paragraphs[1].splitlines()[0].endswith(":"):
+            description = ""
+        else:
+            description = paragraphs[1]
+    elif i == 1:
+        description = " ".join(paragraphs[0].split(" ")[1:])
     else:
-        synopsis = paragraphs[0]
-    prog = synopsis.split(" ")[0]
-    if paragraphs[1].splitlines()[0].endswith(":"):
         description = ""
-    else:
-        description = paragraphs[1]
     sections = []
     version = copyright = author = bug = ""
     for paragraph in paragraphs[2:]:

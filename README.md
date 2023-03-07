@@ -54,7 +54,7 @@ Convert `--help` and `--version` to man page.
 ## Intention
 
 This a python version of [GNU help2man](https://www.gnu.org/software/help2man). It
-solves the following problems[^email]
+solves the following problems[^email]:
 
 ### `GNU help2man` cannot convert `argparse` correctly
 
@@ -95,4 +95,4 @@ when you build a python project, you can see
 
 See [document](https://help2man.readthedocs.io) to know more.
 
-[^email]: I send email to the author of `GNU help2man` but got no response since now.
+[^email]: I send email to the author of `GNU help2man` but got no response.

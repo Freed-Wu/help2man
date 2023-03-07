@@ -52,8 +52,10 @@ write_to = "src/help2man/_version.py"
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
 
-[tool.setuptools.dynamic.optional-dependencies]
-dev = { file = "requirements/dev.txt" }
+# begin: scripts/update-pyproject.toml.pl
+[tool.setuptools.dynamic.optional-dependencies.dev]
+file = "requirements/dev.txt"
+# end: scripts/update-pyproject.toml.pl
 
 
 [tool.black]

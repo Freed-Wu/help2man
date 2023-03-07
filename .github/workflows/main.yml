@@ -10,6 +10,10 @@
       - docs/*
   workflow_dispatch:
 
+# https://github.com/softprops/action-gh-release/issues/236
+permissions:
+  contents: write
+
 env:
   python-version: 3.x
   cache: pip
