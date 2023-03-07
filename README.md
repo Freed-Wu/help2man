@@ -38,10 +38,25 @@
 
 Convert `--help` and `--version` to man page.
 
+## Similar Projects
+
+- [GNU help2man](https://www.gnu.org/software/help2man) Generate manpage for
+  any program with `--help` and `--version`. Written in perl.
+- [click-man](https://github.com/click-contrib/click-man) Generate manpage for
+  click-based python program. Written in python.
+- [cli2man](https://github.com/tobimensch/cli2man) Generate manpage and
+  markdown for any program with `--help` and `--version`. Written in python.
+- This project:  Generate manpage, markdown or any format (if you provide
+  a [jinja](https://docs.jinkan.org/docs/jinja2/templates.html) template) for
+  any program with `--help` and `--version` or any argparse-based python
+  program.
+
+## Intention
+
 This a python version of [GNU help2man](https://www.gnu.org/software/help2man). It
 solves the following problems[^email]
 
-## `GNU help2man` cannot convert `argparse` correctly
+### `GNU help2man` cannot convert `argparse` correctly
 
 Because [argparse](https://docs.python.org/3/library/argparse.html) outputs:
 
@@ -64,7 +79,7 @@ options:
 detect `Options:`. And it only detect first line as synopsis and detect other
 lines as description incorrectly.
 
-## `GNU help2man` cannot customize template
+### `GNU help2man` cannot customize template
 
 I provide `help2man --template XXX` and `help2man --template-file XXX` to do
 it. The template language is
@@ -72,7 +87,7 @@ it. The template language is
 [template](https://github.com/Freed-Wu/help2man/tree/main/src/help2man/assets/jinja2)
 as examples.
 
-## GNU help2man don't provide any programming API
+### GNU help2man don't provide any programming API
 
 Now you can use it in python. If you want to generate man pages automatically
 when you build a python project, you can see
