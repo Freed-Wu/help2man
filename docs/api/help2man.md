@@ -1,7 +1,9 @@
 # help2man
 
 ````{eval-rst}
-```{eval-sh}
-generate-api.md.sh '' -maxdepth 1
+```{eval-bash}
+cd ..
+chopt -s globstar
+generate-api.md.pl src/*/*.py
 ```
 ````

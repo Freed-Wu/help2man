@@ -1,7 +1,9 @@
 # External
 
 ````{eval-rst}
-```{eval-sh}
-generate-api.md.sh external
+```{eval-bash}
+cd ..
+chopt -s globstar
+generate-api.md.pl src/*/external/**/*.py
 ```
 ````

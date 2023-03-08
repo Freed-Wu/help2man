@@ -1,7 +1,9 @@
 # UI
 
 ````{eval-rst}
-```{eval-sh}
-generate-api.md.sh ui
+```{eval-bash}
+cd ..
+chopt -s globstar
+generate-api.md.pl src/*/ui/*.py
 ```
 ````
