@@ -22,9 +22,15 @@ For NixOS, add the following code to `/etc/nixos/configuration.nix`:
 { config, pkgs, ... }:
 {
   nix.settings.experimental-features = [ "flakes" ];
-  environment.systemPackages = [
-    (builtins.getFlake "github:Freed-Wu/help2man").packages.${builtins.currentSystem}.default
-  ];
+  environment.systemPackages =
+    let
+      help2man = (
+        builtins.getFlake "github:Freed-Wu/help2man"
+      ).packages.${builtins.currentSystem}.default;
+    in
+    [
+      help2man
+    ];
 }
 ```
 
