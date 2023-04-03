@@ -1,6 +1,5 @@
 [build-system]
 requires = [
-  "setuptools >= 45",
   "setuptools_scm[toml] >= 6.2",
   "shtab",
   "jinja2",
@@ -44,7 +43,7 @@ Source = "https://github.com/Freed-Wu/help2man"
 help2man = "help2man.__main__:main"
 
 [tool.setuptools.package-data]
-help2man = ["py.typed", "*.man", "*.md", "*.txt"]
+help2man = ["py.typed", "assets/**"]
 
 [tool.setuptools_scm]
 write_to = "src/help2man/_version.py"

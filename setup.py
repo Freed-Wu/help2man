@@ -10,11 +10,6 @@ from pathlib import Path
 from setuptools import setup
 from shtab import complete
 
-try:
-    import tomllib  # type: ignore
-except ImportError:
-    import tomli as tomllib
-
 here = Path(__file__).absolute().parent
 src = here / "src"
 sys.path.insert(0, str(src))
@@ -73,6 +68,14 @@ def update_assets() -> None:
 
     :rtype: None
     """
+    try:
+        import tomllib  # type: ignore
+    except ImportError:
+        try:
+            import tomli as tomllib
+        except ImportError:
+            return None
+
     with open(here / "pyproject.toml", "rb") as f:
         project = tomllib.load(f)["project"]
     with open(txt / "description.txt", "w") as f:
