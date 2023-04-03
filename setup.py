@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 """Set up."""
-import gzip
 import logging
 import sys
 from argparse import ArgumentParser
@@ -27,7 +26,7 @@ shells = {
 }
 resources = here / "build" / "resources"
 resources.mkdir(exist_ok=True, parents=True)
-gz = resources / (prog + ".1.gz")
+man = resources / (prog + ".1")
 txt = src / "help2man" / "assets" / "txt"
 templates = here / "templates"
 
@@ -51,15 +50,15 @@ def generate_completions(
             f.write(content)
 
 
-def generate_man(gz: Path) -> None:
+def generate_man(man: Path) -> None:
     """Generate man.
 
-    :param gz:
-    :type gz: Path
+    :param man:
+    :type man: Path
     :rtype: None
     """
-    with gzip.open(gz, "wb") as f:
-        output = parser2man(parser).encode()
+    output = parser2man(parser)
+    with open(man, "w") as f:
         f.write(output)
 
 
@@ -99,5 +98,5 @@ def update_assets() -> None:
 if __name__ == "__main__":
     update_assets()
     generate_completions(parser, shells, resources)
-    generate_man(gz)
+    generate_man(man)
     setup()

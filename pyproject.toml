@@ -1,10 +1,5 @@
 [build-system]
-requires = [
-  "setuptools_scm[toml] >= 6.2",
-  "shtab",
-  "jinja2",
-  "tomli",
-]
+requires = ["setuptools_scm[toml] >= 6.2", "shtab", "jinja2", "tomli"]
 build-backend = "setuptools.build_meta"
 
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html

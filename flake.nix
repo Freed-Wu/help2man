@@ -25,7 +25,7 @@
               "help2man"
             ];
             postInstall = ''
-              installManPage build/resources/help2man.1.gz
+              installManPage build/resources/help2man.1
               installShellCompletion --cmd help2man \
                 --bash build/resources/help2man \
                 --zsh build/resources/_help2man
