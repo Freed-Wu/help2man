@@ -24,9 +24,9 @@ shells = {
     "zsh": "_" + prog,
     "tcsh": prog + ".csh",
 }
-resources = here / "build" / "resources"
-resources.mkdir(exist_ok=True, parents=True)
-man = resources / (prog + ".1")
+sdist = here / "sdist"
+sdist.mkdir(exist_ok=True, parents=True)
+man = sdist / (prog + ".1")
 txt = src / "help2man" / "assets" / "txt"
 templates = here / "templates"
 
@@ -97,6 +97,6 @@ def update_assets() -> None:
 
 if __name__ == "__main__":
     update_assets()
-    generate_completions(parser, shells, resources)
+    generate_completions(parser, shells, sdist)
     generate_man(man)
     setup()

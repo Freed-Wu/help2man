@@ -6,11 +6,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "help2man"
 description = "Convert --help and --version to man page."
-authors = [{ name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" }]
 readme = "README.md"
 requires-python = ">= 3.9"
 keywords = ["help2man", "man"]
-license = { text = "GPL v3" }
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -28,6 +26,13 @@ classifiers = [
 ]
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
+[[project.authors]]
+name = "Wu Zhenyu"
+email = "wuzhenyu@ustc.edu"
+
+[project.license]
+text = "GPL v3"
+
 [project.urls]
 Homepage = "https://help2man.readthedocs.io"
 Download = "https://github.com/Freed-Wu/help2man/releases"
@@ -40,17 +45,21 @@ help2man = "help2man.__main__:main"
 [tool.setuptools.package-data]
 help2man = ["py.typed", "assets/**"]
 
+[tool.setuptools.data-files]
+"share/man/man1" = ["sdist/help2man.1"]
+"share/bash-completion/completions" = ["sdist/help2man"]
+"share/zsh/site-functions" = ["sdist/_help2man"]
+
 [tool.setuptools_scm]
 write_to = "src/help2man/_version.py"
 
-[tool.setuptools.dynamic]
-dependencies = { file = "requirements.txt" }
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
 
 # begin: scripts/update-pyproject.toml.pl
 [tool.setuptools.dynamic.optional-dependencies.dev]
 file = "requirements/dev.txt"
 # end: scripts/update-pyproject.toml.pl
-
 
 [tool.black]
 line-length = 79

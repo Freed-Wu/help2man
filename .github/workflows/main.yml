@@ -69,14 +69,11 @@ jobs:
         with:
           path: |
             dist/*
-            build/resources/*
       - uses: softprops/action-gh-release@v1
-        # shell completion's don't support windows' EOF
         if: startsWith(github.ref, 'refs/tags/') && runner.os != 'Windows'
         with:
           files: |
             dist/*
-            build/resources/*
       - uses: pypa/gh-action-pypi-publish@release/v1
         if: startsWith(github.ref, 'refs/tags/') && runner.os == 'Linux'
         with:
