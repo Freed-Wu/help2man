@@ -1,4 +1,5 @@
 [build-system]
+# tomli is optional, which is used to update assets/txt/*.txt
 requires = ["setuptools_scm[toml] >= 6.2", "shtab", "jinja2", "tomli"]
 build-backend = "setuptools.build_meta"
 
