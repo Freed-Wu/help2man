@@ -9,8 +9,7 @@
         {
           formatter = nixpkgs-fmt;
           packages.default = buildPythonApplication rec {
-            pname = "help2man";
-            version = "";
+            name = "help2man";
             src = self;
             disabled = pythonOlder "3.6";
             propagatedBuildInputs = [
