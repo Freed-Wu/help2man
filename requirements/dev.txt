@@ -4,4 +4,4 @@
 pre-commit
 pytest-cov
 shtab
-tomli
+tomli >= 1.0.0; python_version < '3.11'

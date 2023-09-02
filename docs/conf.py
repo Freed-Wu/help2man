@@ -41,14 +41,19 @@ with open(PROJECT_FILE, "rb") as f:
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
     "myst_parser",
+    "sphinxcontrib.autofile",
     "sphinxcontrib.eval",
+    "sphinxcontrib.requirements_txt",
 ]
 
 myst_heading_anchors = 3
+myst_title_to_header = True
+todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
