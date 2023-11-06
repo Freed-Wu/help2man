@@ -2,8 +2,8 @@
 
 ## [AUR](https://aur.archlinux.org/packages/help2man)
 
-```sh
-yay -S help2man
+```bash
+yay -S python-help2man
 ```
 
 ## [NUR](https://nur.nix-community.org/repos/freed-wu)
