@@ -8,7 +8,8 @@ build-backend = "setuptools.build_meta"
 name = "help2man"
 description = "Convert --help and --version to man page."
 readme = "README.md"
-requires-python = ">= 3.9"
+# type_a | type_b
+requires-python = ">= 3.10"
 keywords = ["help2man", "man"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -21,9 +22,11 @@ classifiers = [
   "Operating System :: MacOS",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
@@ -65,25 +68,37 @@ file = "requirements/dev.txt"
 [tool.mdformat]
 number = true
 
-[tool.black]
-line-length = 79
-
-[tool.isort]
-line_length = 79
-profile = "black"
-
-# https://github.com/PyCQA/pydocstyle/issues/418
-[tool.pydocstyle]
-add_ignore = "D205, D400"
-
 [tool.doq]
 template_path = "templates"
 
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  # pyflakes
+  "F",
+  # pyupgrade
+  "UP",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # isort
+  "I",
+]
+ignore = ["D205", "D400"]
+preview = true
+
+[tool.ruff.format]
+docstring-code-format = true
+preview = true
+
 [tool.coverage.report]
-exclude_lines = ["if TYPE_CHECKING:", "if __name__ == .__main__.:"]
-
-[tool.bandit]
-skips = ["B404", "B603"]
-
-[tool.bandit.assert_used]
-skips = ["*_test.py", "test_*.py"]
+exclude_lines = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "\\s*import tomli as tomllib",
+]
