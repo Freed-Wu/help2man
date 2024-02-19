@@ -2,8 +2,8 @@
 
 ## [AUR](https://aur.archlinux.org/packages/help2man)
 
-```sh
-yay -S help2man
+```bash
+yay -S python-help2man
 ```
 
 ## [Nix](https://nixos.org)
