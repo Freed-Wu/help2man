@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Set up."""
+
 import logging
 import sys
 from argparse import ArgumentParser

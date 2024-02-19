@@ -1,4 +1,5 @@
 """Test cmd."""
+
 import os
 from contextlib import suppress
 from pathlib import Path

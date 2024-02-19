@@ -1,4 +1,5 @@
 """Provide CLI."""
+
 import logging
 from argparse import Namespace
 from shlex import split
@@ -21,9 +22,9 @@ def get_cmd_output(
     :rtype: str
     """
     if no_discard_stderr:
-        rst = run(tokens, stdout=PIPE, stderr=STDOUT, universal_newlines=True)
+        rst = run(tokens, stdout=PIPE, stderr=STDOUT, text=True)
     else:
-        rst = run(tokens, capture_output=True, universal_newlines=True)
+        rst = run(tokens, capture_output=True, text=True)
     return rst.stdout
 
 

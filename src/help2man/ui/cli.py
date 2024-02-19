@@ -1,6 +1,7 @@
 """Command Line Interface
 =========================
 """
+
 from argparse import Namespace
 
 from .. import TEMPLATES, help2man

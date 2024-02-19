@@ -2,10 +2,9 @@
 
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+
 import os
 from datetime import datetime
-
-from help2man import __version__ as version  # type: ignore
 
 try:
     import tomllib  # type: ignore

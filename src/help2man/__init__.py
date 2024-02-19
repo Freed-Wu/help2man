@@ -1,14 +1,15 @@
 """Provide ``__version__`` for
 `importlib.metadata.version() <https://docs.python.org/3/library/importlib.metadata.html#distribution-versions>`_.
 """
+
 import io
 import logging
 import re
 from argparse import ArgumentParser, Namespace
+from collections.abc import Callable
 from contextlib import nullcontext, redirect_stderr, redirect_stdout
 from datetime import datetime
 from pathlib import Path
-from typing import Callable
 
 from jinja2 import Template
 
@@ -56,10 +57,7 @@ def get_output(
     :rtype: str
     """
     string = io.StringIO()
-    if no_discard_stderr:
-        ctx = redirect_stderr(string)
-    else:
-        ctx = nullcontext()
+    ctx = redirect_stderr(string) if no_discard_stderr else nullcontext()
     with redirect_stdout(string), ctx:
         f(*args)
     string.seek(0)
@@ -161,7 +159,6 @@ def help2man(
     paragraphs = PAT_SECTION.split(helpstr)
     prog = ""
     synopsis = ""
-    i = -1
     for i, paragraph in enumerate(paragraphs):
         if paragraph.startswith("usage: ") or paragraph.startswith("Usage: "):
             synopsis = (
@@ -179,16 +176,16 @@ def help2man(
             )
             prog = synopsis.strip().split(" ")[0]
             break
-    if i == 0:
-        # argparse's description may be in 1-st paragraph
-        if paragraphs[1].splitlines()[0].endswith(":"):
-            description = ""
+        if i == 0:
+            # argparse's description may be in 1-st paragraph
+            if paragraphs[1].splitlines()[0].endswith(":"):
+                description = ""
+            else:
+                description = paragraphs[1]
+        elif i == 1:
+            description = " ".join(paragraphs[0].split(" ")[1:])
         else:
-            description = paragraphs[1]
-    elif i == 1:
-        description = " ".join(paragraphs[0].split(" ")[1:])
-    else:
-        description = ""
+            description = ""
     sections = []
     version = copyright = author = bug = ""
     for paragraph in paragraphs[2:]:
