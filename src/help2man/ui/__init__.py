@@ -42,7 +42,7 @@ def init(args: Namespace) -> Namespace:
     if args.include:
         try:
             with open(args.include) as f:
-                args.help += f.read()
+                args.helpstr += f.read()
         except FileNotFoundError as e:
             logger.warning(e)
             logger.warning("ignore " + args.include)
