@@ -36,7 +36,133 @@
 [![pypi/implementation](https://shields.io/pypi/implementation/help2man)](https://pypi.org/project/help2man/#files)
 [![pypi/pyversions](https://shields.io/pypi/pyversions/help2man)](https://pypi.org/project/help2man/#files)
 
-Convert `--help` and `--version` to man page.
+Convert `--help` and `--version` to man page or other file types like markdown.
+
+## Usage
+
+```sh
+$ help2man --help
+usage: help2man [-h] [-V] [--print-completion {bash,zsh,tcsh}] [-n NAME]
+                [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
+                [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
+                [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
+                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                executable ...
+
+Convert --help and --version to man page.
+
+positional arguments:
+  executable            executable program name
+  ...                   executable program arguments
+
+options:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+# ...
+$ help2man --version
+help2man 0.0.9
+Copyright (C) 2022-2023
+Written by Wu Zhenyu.
+```
+
+### Man
+
+```sh
+help2man help2man | man --local-file -
+```
+
+```man
+HELP2MAN(1)                    User Commands                   HELP2MAN(1)
+
+NAME
+       help2man - Convert --help and --version to man page.
+
+SYNOPSIS
+       help2man [-h] [-V] [--print-completion {bash,zsh,tcsh}] [-n NAME]
+                [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
+                [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
+                [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
+                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                executable ...
+
+DESCRIPTION
+       Convert --help and --version to man page.
+
+POSITIONAL ARGUMENTS
+       executable
+              executable program name
+
+       ...    executable program arguments
+
+OPTIONS
+       -h, --help
+              show this help message and exit
+
+       -V, --version
+              show program's version number and exit
+
+# ...
+
+AUTHOR
+       Written by Wu Zhenyu.
+
+REPORTING BUGS
+       Report bugs to https://github.com/Freed-Wu/help2man/issues .
+
+COPYRIGHT
+       Copyright © 2022-2023
+
+help2man 0.0.9                  2024-11-02                     HELP2MAN(1)
+```
+
+### Markdown
+
+```sh
+help2man --template markdown help2man
+```
+
+```markdown
+# Man
+
+## Name
+
+help2man - Convert ----help and ----version to man page.
+
+## Synopsis
+
+help2man [-h] [-V] [----print-completion {bash,zsh,tcsh}] [-n NAME]
+         [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
+         [-i INCLUDE] [-o OUTPUT] [----template {man,markdown}]
+         [----template-file TEMPLATE_FILE] [----help-option HELP_OPTION]
+         [----version-option VERSION_OPTION] [----no-discard-stderr]
+         executable ...
+
+## Description
+
+Convert ----help and ----version to man page.
+
+## Positional arguments
+
+### executable
+
+executable program name
+
+### ...
+
+executable program arguments
+
+## Options
+
+### -h, ----help
+
+show this help message and exit
+
+### -V, ----version
+
+show program's version number and exit
+
+# ...
+```
 
 ## Similar Projects
 
