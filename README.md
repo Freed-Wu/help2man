@@ -46,7 +46,8 @@ usage: help2man [-h] [-V] [--print-completion {bash,zsh,tcsh}] [-n NAME]
                 [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
                 [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
                 [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
-                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                [--version-option VERSION_OPTION] [--version-string VERSION]
+                [--no-discard-stderr]
                 executable ...
 
 Convert --help and --version to man page.
@@ -82,7 +83,8 @@ SYNOPSIS
                 [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
                 [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
                 [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
-                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                [--version-option VERSION_OPTION] [--version-string VERSION]
+                [--no-discard-stderr]
                 executable ...
 
 DESCRIPTION
@@ -134,7 +136,8 @@ help2man [-h] [-V] [----print-completion {bash,zsh,tcsh}] [-n NAME]
          [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
          [-i INCLUDE] [-o OUTPUT] [----template {man,markdown}]
          [----template-file TEMPLATE_FILE] [----help-option HELP_OPTION]
-         [----version-option VERSION_OPTION] [----no-discard-stderr]
+         [----version-option VERSION_OPTION] [----version-string VERSION]
+         [----no-discard-stderr]
          executable ...
 
 ## Description
