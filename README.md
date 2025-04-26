@@ -43,21 +43,22 @@ Convert `--help` and `--version` to man page or other file types like markdown.
 ```sh
 $ help2man --help
 usage: help2man [-h] [-V] [--print-completion {bash,zsh,tcsh}] [-n NAME]
-                [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
-                [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
-                [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
-                [--version-option VERSION_OPTION] [--no-discard-stderr]
-                executable ...
+[-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
+[-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
+[--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
+[--version-option VERSION_OPTION] [--version-string VERSION]
+[--no-discard-stderr]
+executable ...
 
 Convert --help and --version to man page.
 
 positional arguments:
-  executable            executable program name
-  ...                   executable program arguments
+executable            executable program name
+...                   executable program arguments
 
 options:
-  -h, --help            show this help message and exit
-  -V, --version         show program's version number and exit
+-h, --help            show this help message and exit
+-V, --version         show program's version number and exit
 # ...
 $ help2man --version
 help2man 0.0.9
@@ -82,7 +83,8 @@ SYNOPSIS
                 [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
                 [-i INCLUDE] [-o OUTPUT] [--template {man,markdown}]
                 [--template-file TEMPLATE_FILE] [--help-option HELP_OPTION]
-                [--version-option VERSION_OPTION] [--no-discard-stderr]
+                [--version-option VERSION_OPTION] [--version-string VERSION]
+                [--no-discard-stderr]
                 executable ...
 
 DESCRIPTION
@@ -134,7 +136,8 @@ help2man [-h] [-V] [----print-completion {bash,zsh,tcsh}] [-n NAME]
          [-s SECTION] [-m MANUAL] [-S SOURCE] [-p INFO_PAGE]
          [-i INCLUDE] [-o OUTPUT] [----template {man,markdown}]
          [----template-file TEMPLATE_FILE] [----help-option HELP_OPTION]
-         [----version-option VERSION_OPTION] [----no-discard-stderr]
+         [----version-option VERSION_OPTION] [----version-string VERSION]
+         [----no-discard-stderr]
          executable ...
 
 ## Description

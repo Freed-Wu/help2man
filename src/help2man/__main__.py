@@ -85,6 +85,12 @@ def get_parser() -> ArgumentParser:
         help="version option string, default: %(default)s",
     )
     parser.add_argument(
+        "--version-string",
+        dest="versionstr",
+        metavar="VERSION",
+        help="force version string",
+    )
+    parser.add_argument(
         "--no-discard-stderr",
         action="store_true",
         help="include stderr when parsing option output",

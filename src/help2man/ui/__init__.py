@@ -38,7 +38,10 @@ def init(args: Namespace) -> Namespace:
     help_tokens = args.executable + args.args + split(args.help_option)
     version_tokens = args.executable + args.args + split(args.version_option)
     args.helpstr = get_cmd_output(help_tokens, args.no_discard_stderr)
-    args.versionstr = get_cmd_output(version_tokens, args.no_discard_stderr)
+    if not args.versionstr:
+        args.versionstr = get_cmd_output(
+            version_tokens, args.no_discard_stderr
+        )
     if args.include:
         try:
             with open(args.include) as f:

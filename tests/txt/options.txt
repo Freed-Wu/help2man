@@ -29,4 +29,6 @@ options:
                         help option string, default: --help
   --version-option VERSION_OPTION
                         version option string, default: --version
+  --version-string VERSION
+                        force version string
   --no-discard-stderr   include stderr when parsing option output
